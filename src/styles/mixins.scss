@@ -1,0 +1,28 @@
+/* font mixins */
+@mixin font($size: 14, $weight: 400) {
+    font-size: var(--font-size-#{$size});
+    line-height: var(--line-height-#{$size});
+    font-weight: $weight;
+}
+
+/* Setting the width and height of an element. */
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+/* Aligning center an element. */
+@mixin centerAbsolute($pos: 'both') {
+    position: absolute;
+    @if $pos == 'both' {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } @else if $pos == 'left' {
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if $pos == 'top' {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

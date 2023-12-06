@@ -1,0 +1,81 @@
+@import '../mixins.scss';
+
+$--input-small-height: 22px;
+$--input-small-padding-y: 4px;
+
+$--input-medium-height: 26px;
+$--input-medium-padding-y: 5px;
+
+$--input-large-height: 30px;
+$--input-large-padding-y: 8px;
+
+$--label-color: rgb(var(--c-gray-900));
+$--label-required-mark-color: rgb(var(--c-red-500));
+
+$--input-border-color: rgb(var(--c-gray-300));
+$--input-placeholder-color: rgb(var(--c-gray-500));
+$--input-hover-bg-color: rgb(var(--c-gray-100));
+$--input-error-border-color: rgb(var(--c-red-500));
+
+$--error-message-color: rgb(var(--c-white));
+$--error-message-bg-color: #f77;
+
+/* === Width of input === */
+
+.input-width-full {
+    width: 100%;
+}
+
+.input-width-extra-extra-large {
+    width: 320px;
+}
+
+.input-width-extra-large {
+    width: 250px;
+}
+.input-width-large {
+    width: 200px;
+}
+.input-width-medium {
+    width: 180px;
+}
+.input-width-small {
+    width: 150px;
+}
+.input-width-extra-small {
+    width: 120px;
+}
+
+.label-group {
+    padding-bottom: 2px;
+    label {
+        @include font(12, 500);
+        color: $--label-color;
+    }
+    .required-mark {
+        color: $--label-required-mark-color;
+    }
+}
+
+/* Style tooltip */
+.tooltip {
+    position: absolute;
+    left: 16px;
+    display: none;
+    top: 52px;
+    z-index: 50;
+    text-wrap: nowrap;
+
+    @include font(12);
+    padding: 4px;
+    border-radius: 2px;
+    color: $--error-message-color;
+    background-color: $--error-message-bg-color;
+
+    .input-group:has(.input-error:hover) + & {
+        display: flex;
+    }
+    .input-group:has(.input-overflow:hover) + & {
+        display: flex;
+    }
+}
